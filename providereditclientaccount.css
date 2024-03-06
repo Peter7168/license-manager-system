@@ -1,0 +1,70 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-image: url('ng.png');
+}
+header {
+    background-color: #000000;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    height:60px;
+}
+.back-button {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #333;
+    color: white;
+    cursor: pointer;
+    text-decoration: none;
+    margin-top: 150px;
+}
+h1 {
+   
+    color: #ffffff;
+}
+
+form {
+    max-width: 400px;
+    margin: 0 auto;
+    background-color: #2a2a2a;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-top: 100px;
+}
+
+.alert {
+
+    padding: 15px;
+    background-color: #ffffff;
+    color: #0e0e0e;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    color: #535353;
+}
+
+input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 16px;
+    box-sizing: border-box;
+    border: 1px solid #535353;
+    border-radius: 4px;
+}
+
+input[type="button"] {
+    background-color: #552bb6;
+    color: #ffffff;
+    cursor: pointer;
+}

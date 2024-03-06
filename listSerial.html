@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Client Serial Numbers</title>
+    <style>
+         body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('ng.png');
+        }
+ 
+
+h1 {
+            text-align: center;
+            color: #ffffff;
+        }
+        header {
+            background-color: #000;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            margin-bottom: 20px;
+            height:60px;
+        }
+        .back-button {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #333;
+    color: white;
+    cursor: pointer;
+    text-decoration: none;
+    margin-top: 150px;
+}
+        #serialList {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        p {
+            margin-bottom: 8px;
+            color: #333;
+        }
+    </style>
+     <header> <h1>Software Management System</h1></header>
+</head>
+<body>
+    <h1>Client Serial Numbers</h1>
+    <div id="serialList"></div>
+    <a href="client.html" class="back-button">Back</a>
+    <script>
+       
+        // Retrieve serial numbers from local storage
+         const serialNumbers = JSON.parse(localStorage.getItem('serialNumbers')) || [];
+
+// Display the list of serial numbers
+const serialListContainer = document.getElementById('serialList');
+serialNumbers.forEach(serial => {
+    const serialInfo = document.createElement('p');
+    serialInfo.textContent = `Serial Number: ${serial.serialNumber}, Software Name: ${serial.softwareName}, Expiry Date: ${serial.expiryDate}`;
+    serialListContainer.appendChild(serialInfo);
+});
+       // Retrieve existing licenses from local storage
+       var existingLicenses = JSON.parse(localStorage.getItem('licenses')) || [];
+
+// Retrieve the new license from local storage
+var newLicense = JSON.parse(localStorage.getItem('newLicense'));
+
+
+
+// Display existing licenses
+existingLicenses.forEach(serial => {
+    displaySerialInfo(serial);
+});
+
+// Display the new license if available
+if (newLicense) {
+    displaySerialInfo(newLicense);
+}
+
+function displaySerialInfo(serial) {
+    var serialInfo = document.createElement('p');
+    serialInfo.textContent = `Serial Number: ${serial.serialNumber}, Software Name: ${serial.softwareName}, Purchase Date: ${serial.purchaseDate}, Expiry Date: ${serial.expiryDate}`;
+    serialListContainer.appendChild(serialInfo);
+}
+        </script>
+        
+</body>
+</html>

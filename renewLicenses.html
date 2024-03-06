@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>License Renewal</title>
+    <style>
+        /* Your styles here */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('ng.png');
+        }
+
+        h1 {
+            text-align: center;
+            color: #ffffff;
+        }
+
+        header {
+            background-color: #000;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            margin-bottom: 100px;
+        }
+
+        #renewalForm {
+            max-width: 400px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .alert {
+            padding: 15px;
+            border: 1px solid #ddd;
+            background-color: #535353;
+            color: #0e0e0e;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+
+        .renewal-alert {
+            padding: 15px;
+            background-color: #ffffff;
+            color: #0e0e0e;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #535353;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 16px;
+            box-sizing: border-box;
+            border: 1px solid #535353;
+            border-radius: 4px;
+        }
+
+        select {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 16px;
+            box-sizing: border-box;
+            border: 1px solid #535353;
+            border-radius: 4px;
+        }
+
+        input[type="button"] {
+            background-color: rgba(52, 152, 219, 0.8);
+            color: #ffffff;
+            cursor: pointer;
+        }
+
+        .back-button {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #333;
+            color: white;
+            cursor: pointer;
+            text-decoration: none;
+            margin-top: 150px;
+        }
+    </style>
+    <header> <h1>Software Management System</h1></header>
+</head>
+<body>
+    <h1>License Renewal</h1>
+    <div id="renewalForm">
+        <label for="licenseKey">License Key:</label>
+        <input type="text" id="licenseKey" required><br>
+
+        <label for="renewalOption">Renewal Option:</label>
+        <select id="renewalOption">
+            <option value="Renew">Renew</option>
+            <option value="Stop">Stop Renewal</option>
+        </select><br>
+
+        <input type="button" value="Submit" onclick="handleRenewal()">
+    </div>
+    <a href="client.html" class="back-button">Back</a>
+    <script>
+        function handleRenewal() {
+            var licenseKey = document.getElementById('licenseKey').value;
+            var renewalOption = document.getElementById('renewalOption').value;
+
+            // Check if the license key is valid (you can replace this with your validation logic)
+            var isValidLicense = validateLicenseKey(licenseKey);
+
+            if (isValidLicense) {
+                console.log("License Key: " + licenseKey);
+                console.log("Renewal Option: " + renewalOption);
+
+                // Handle both renewal and stopping renewal
+                if (renewalOption === "Renew") {
+                    // Handle license renewal (add one year to the expiration date)
+                    renewLicense(licenseKey);
+                } 
+
+                var renewalAlertDiv = document.createElement('div');
+                renewalAlertDiv.className = 'alert renewal-alert';
+                renewalAlertDiv.textContent = "Renewal option for License Key " + licenseKey + ": " + renewalOption;
+                document.body.appendChild(renewalAlertDiv);
+            } else {
+                // Display an alert for invalid license key
+                var invalidLicenseAlert = document.createElement('div');
+                invalidLicenseAlert.className = 'alert renewal-alert';
+                invalidLicenseAlert.textContent = "Invalid License Key: " + licenseKey;
+                document.body.appendChild(invalidLicenseAlert);
+            }
+        }
+
+        function validateLicenseKey(licenseKey) {
+            // You can replace this with your own validation logic
+            // For simplicity, we assume any non-empty license key is valid
+            return licenseKey.trim() !== '';
+        }
+
+        function renewLicense(licenseKey) {
+            // Retrieve serial numbers from local storage
+            var serialNumbers = JSON.parse(localStorage.getItem('serialNumbers')) || [];
+
+            // Find the serial with the matching license key
+            var matchingSerial = serialNumbers.find(serial => serial.serialNumber === licenseKey);
+
+            if (matchingSerial) {
+                // Update the expiration date by adding one year
+                var currentDate = new Date(matchingSerial.expiryDate);
+                currentDate.setFullYear(currentDate.getFullYear() + 1);
+                matchingSerial.expiryDate = currentDate.toISOString().split('T')[0];
+
+                // Update the serial numbers in local storage
+                localStorage.setItem('serialNumbers', JSON.stringify(serialNumbers));
+            }
+        }
+
+        function stopRenewal(licenseKey) {
+            // Retrieve serial numbers from local storage
+            var serialNumbers = JSON.parse(localStorage.getItem('serialNumbers')) || [];
+
+         
+
+            // Update the serial numbers in local storage
+            localStorage.setItem('serialNumbers', JSON.stringify(updatedSerialNumbers));
+        }
+    </script>
+</body>
+</html>

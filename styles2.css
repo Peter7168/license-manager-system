@@ -1,0 +1,74 @@
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    background-image: url('ng.png');
+    background-size: cover;
+  }
+  
+  .header {
+    text-align: center;
+    margin: 20px 0;
+  }
+  
+  .container {
+    display: flex;
+    height: 50%;
+  }
+  
+  .half {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.5s;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    text-decoration: none; /* Remove underlines from text */
+  }
+  
+  .client {
+    background-color: #90958f; /* Client half division color */
+    color: #fff; /* Text color for Client */
+  }
+  
+  .provider {
+    background-color: #4a4d52; /* Dark grey for provider */
+    color: #fff; /* Text color for provider */
+  }
+  
+  .half:hover {  /*style element itself upon hovering*/
+    transform: scale(1.1); /* Increase size by 10% on hover */
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.4); /* Shadow effect on hover */
+  }
+  
+  .half::before {           /* add circular pseudo-element animation upon hovering*/
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+    background-color: rgba(0, 0, 0, 0.5); /* black effect upon hovering */
+    width: 30px;
+    height: 30px;
+    transition: all 0.5s ease;
+    opacity: 0;
+    pointer-events: none;  /*keeps the element clickable with a link*/
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: -1; /* Ensure the pseudo-element stays beneath the button */
+  }
+  
+  .half:hover::before {
+    width: 200%;
+    height: 200%;
+    opacity: 1;
+  }
+  
+
+  

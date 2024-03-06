@@ -1,0 +1,98 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-image: url('ng.png');
+}
+
+header {
+    background-color: #000000;
+    color: white;
+    text-align: center;
+    padding: 20px 0; 
+     height:60px;
+}
+
+h1 {
+    margin: 0;
+}
+
+.container {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-around;
+}
+
+.square {
+    width: 200px;
+    height: 200px;
+    border-radius: 10px;
+    background-color: #6b6767;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: transform 0.3s ease; /* Apply a smooth transition for scaling */
+    text-decoration: none;
+    text-align: center;
+    font-size: 1.5em;
+    margin: 10px;
+}
+
+.square:hover {
+    transform: scale(1.1); /* Scale up the button on hover */
+}
+
+.dropdown {
+    position: absolute;
+    top: 25px; /* Adjust the position to move the P with circle higher */
+    left: 20px;
+}
+
+.circle {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: #333;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    font-size: 24px;
+}
+
+.dropdown-content {
+    position: absolute;
+    background-color: #6b6767;
+    min-width: 120px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.dropdown-content a {
+    display: block;
+    text-align: center;
+    padding: 10px;
+    color: white;
+    text-decoration: none;
+}
+
+.dropdown:hover .dropdown-content {
+    opacity: 1;
+    visibility: visible;
+}

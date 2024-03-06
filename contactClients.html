@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Software Management System</title>
+    <link rel="stylesheet" href="lol.css">
+    
+</head>
+<body>
+    <header>
+        <h1> Software Management System</h1>
+    </header>
+    <a href="provider.html" class="back-button">Back</a>
+    <div class="container">
+        <h2>Write a message for the client</h2>
+        <form id="clientForm">
+            <div class="client-card">
+                <input type="radio" id="client1" name="client" value="client1">
+                <label for="client1">
+                    <h3>Client 1</h3>
+                    <p>Name: Osamah Atrach</p>
+                    <p>Email: osamah.atrach@hotmail.com</p>
+                    <p>Serial Number: 40224562</p>
+                </label>
+            </div>
+
+            <div class="client-card">
+                <input type="radio" id="client2" name="client" value="client2">
+                <label for="client2">
+                    <h3>Client 2</h3>
+                    <p>Name: Peter Samer</p>
+                    <p>Email: Jido.boudy@lebanon.com</p>
+                    <p>Serial Number: 964784223</p>
+                </label>
+            </div>
+
+            <textarea id="clientMessage" placeholder="Write your message here..."></textarea>
+            <br>
+            <button type="button" id="submitBtn" onclick="submitMessage()">Submit</button>
+        </form>
+    </div>
+
+    <script>
+        function submitMessage() {
+            var message = document.getElementById("clientMessage").value;
+            console.log("Message submitted: " + message);
+            document.getElementById("clientMessage").value = "";
+        }
+    </script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            
+            color: #ffffff;
+        }
+
+        .container {
+            margin: 10px;
+            width: 90%;
+            text-align: left;
+           color:black;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            
+            padding: 20px;
+        }
+        .back-button {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #333;
+    color: white;
+    cursor: pointer;
+    text-decoration: none;
+    top: 150px;
+    z-index: 2;
+}
+        h2 {
+            text-align: left;
+        }
+
+        #clientMessage {
+            width: 100%;
+            margin-bottom: 10px;
+            padding: 10px;
+            border: 1px solid #535353;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        #submitBtn {
+            background-color: #552bb6;
+            color: #ffffff;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .client-card {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin: 10px 0;
+            display: flex;
+            align-items: center;
+        }
+
+        input[type="radio"] {
+            margin-right: 10px;
+        }
+
+        label {
+            display: block;
+            cursor: pointer;
+        }
+    </style>
+</body>
+</html>

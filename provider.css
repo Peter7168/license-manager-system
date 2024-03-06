@@ -1,0 +1,137 @@
+
+/* Reset margin and padding for all elements */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+header {
+    background-color: #000000;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    height:80px;
+}
+
+h1 {
+    margin: 0;
+}
+
+.container {
+    position: relative;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+body {
+    margin: 0;
+    background-image: url('ng.png');
+}
+
+.dropdown {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+}
+
+.circle {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: #333;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    font-size: 24px;
+}
+
+.dropdown-content {
+    position: absolute;
+    background-color: #000;
+    min-width: 120px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.dropdown-content a {
+    display: block;
+    text-align: center;
+    padding: 10px;
+    color: white;
+    text-decoration: none;
+}
+
+.dropdown:hover .dropdown-content {
+    opacity: 1;
+    visibility: visible;
+}
+
+.squares-container {
+    display: flex;
+    justify-content: center; /* Center squares horizontally */
+    align-items: center; /* Center squares vertically */
+margin-top:200px;
+}
+
+.square {
+    width: 200px;
+    height: 200px;
+    border-radius: 10px;
+    background-color: #6b6767;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    text-align: center;
+    font-size: 1.5em;
+    margin: 10px;
+    position: relative;
+}
+
+.square:hover {
+    transform: scale(1.1);
+    border-radius: 10px;
+}
+
+.title, .description {
+    transition: opacity 0.3s;
+    position: absolute;
+}
+
+.title {
+    z-index: 2;
+}
+
+.description {
+    background-color: rgba(52, 152, 219, 0.8);
+    color: #fff;
+    opacity: 0;
+    z-index: 1;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+}
+
+.square:hover .title {
+    opacity: 0;
+}
+
+.square:hover .description {
+    opacity: 1;
+}

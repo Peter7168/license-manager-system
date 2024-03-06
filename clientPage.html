@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>License Activation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('ng.png');
+        }
+
+        h1 {
+            text-align: center;
+            color: #ffffff;
+        }
+
+        header {
+            background-color: #000;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            height:60px;
+        }
+
+        form {
+            max-width: 400px;
+            margin: 0 auto;
+            background-color: #2a2a2a;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .alert {
+            padding: 15px;
+            background-color: #ffffff;
+            color: #0e0e0e;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #535353;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 16px;
+            box-sizing: border-box;
+            border: 1px solid #535353;
+            border-radius: 4px;
+        }
+
+        input[type="button"] {
+            background-color: rgba(52, 152, 219, 0.8);
+            color: #ffffff;
+            cursor: pointer;
+        }
+
+        .back-button {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #333;
+    color: white;
+    cursor: pointer;
+    text-decoration: none;
+    margin-top: 150px;
+}
+
+        h1.first { margin-top: 100px; }
+  
+
+a.back-button:hover {
+    background-color: #555; /* Darken the color on hover */
+}
+#test {
+            position: absolute;
+            bottom: 500px;
+            left: -500px;
+            width: 100%;
+            height: -50px; 
+            opacity: 0;
+        }
+     
+
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Software Management System</h1>
+    </header>
+
+    <h1 class="first">License Activation</h1>
+    <script>
+        function activateLicense() {
+            var serialNumber = document.getElementById('serialNumber').value;
+            var purchaseDate = document.getElementById('purchaseDate').value;
+            var expiryDate = document.getElementById('expiryDate').value;
+            var accountEmail = document.getElementById('accountEmail').value;
+
+            // Generate a random software name (you can modify this logic)
+            var softwareName = generateRandomSoftwareName();
+
+            console.log("Serial Number:", serialNumber);
+            console.log("Purchase Date:", purchaseDate);
+            console.log("Expiry Date:", expiryDate);
+            console.log("Account Email:", accountEmail);
+            console.log("Software Name:", softwareName);
+
+            // Create a new license object
+            var newLicense = {
+                serialNumber: serialNumber,
+                softwareName: softwareName,
+                purchaseDate: purchaseDate,
+                expiryDate: expiryDate
+            };
+
+            // Retrieve existing licenses from local storage
+            var existingLicenses = JSON.parse(localStorage.getItem('licenses')) || [];
+
+            // Add the new license to the existing licenses
+            existingLicenses.push(newLicense);
+
+            // Store the updated licenses back in local storage
+            localStorage.setItem('licenses', JSON.stringify(existingLicenses));
+
+            // Store the new license separately for listSerial.html to retrieve
+            localStorage.setItem('newLicense', JSON.stringify(newLicense));
+
+            var alertDiv = document.createElement('div');
+            alertDiv.className = 'alert';
+            alertDiv.textContent = 'License Activated!';
+            document.body.appendChild(alertDiv);
+
+            // Clear input fields
+            document.getElementById('serialNumber').value = '';
+            document.getElementById('purchaseDate').value = '';
+            document.getElementById('expiryDate').value = '';
+            document.getElementById('accountEmail').value = '';
+        }
+
+        // Function to generate a random software name 
+        function generateRandomSoftwareName() {
+            var softwareNames = ["Software A", "NewApp", "Asus", "CanonSoftware", "Concordia"];
+            var randomIndex = Math.floor(Math.random() * softwareNames.length);
+            return softwareNames[randomIndex];
+        }
+    </script>
+     <div class="back-button-container">
+  <a href="client.html" class="back-button">Back</a>
+</div>
+    <form>
+        <label for="serialNumber">Serial Number:</label>
+        <input type="text" id="serialNumber" required><br>
+
+        <label for="purchaseDate">Purchase Date:</label>
+        <input type="date" id="purchaseDate" required><br>
+
+        <label for="expiryDate">Expiry Date:</label>
+        <input type="date" id="expiryDate" required><br>
+        <div id="test" style="position: relative;  opacity: 0; text-decoration: none;">
+            
+            
+    
+            <a href="provider.html" class="back-button" onclick="document.getElementById('Link').click();">Back11</a>
+        </div>
+        <label for="accountEmail">Account Email:</label>
+        <input type="email" id="accountEmail" required><br>
+
+        <input type="button" value="Activate License" onclick="activateLicense()">
+    </form>
+</body>
+</html>

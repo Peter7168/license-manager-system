@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        button[type="submit"] {
+            background-color: black;
+            color: white;
+            padding: 10px 20px; /* Adjust padding for button size */
+            border-radius: 10px; /* Round edges */
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: block; /* Display the button as a block-level element */
+            margin-top: 40px;
+            margin-left: 250px; /* Adjust the margin to separate from the text fields */
+        }
+        
+        /* Hover effect */
+        button[type="submit"]:hover {
+            background-color: #333; /* Darken the color on hover */
+            transform: scale(1.1); /* Scale up the button on hover */
+        }
+        
+      
+        
+       
+
+
+/* Back button styles */
+a.back-button {
+    display: inline-block;
+    background-color: #333;
+    color: white;
+    padding: 8px 15px;
+    border-radius: 20px; /* Round edges for the back button */
+    text-decoration: none;
+    margin: 10px; /* Add margin to position the back button */
+    position: absolute;
+    top: 50px; /* Adjust the distance from the top  */
+    left: 20px; /* Adjust the distance from the left */
+}
+
+a.back-button:hover {
+    background-color: #555; /* Darken the color on hover */
+}
+
+    </style>
+
+ 
+         <meta charset="UTF-8">
+         <title>Associate Serial Number - Software Management System</title>
+         <link rel="stylesheet" href="lol.css">
+     </head>
+     <body>
+        
+         <header>
+             <h1>Software Management System</h1>
+         </header>
+         <div class="container">
+             <h2>Associate Serial Number with Product or Client</h2>
+             <form>
+                 <label for="serialNumber">Serial Number:</label>
+                 <input type="text" id="serialNumber" name="serialNumber" required>
+     
+                 <label for="product">Product:</label>
+                 <input type="text" id="product" name="product" required>
+     
+                 <label for="client">Client:</label>
+                 <input type="text" id="client" name="client" required>
+     
+                 <button type="submit">Associate Serial Number</button>
+             </form>
+             <a href="provider.html" class="back-button">Back</a>
+         </div>
+     </body>
+     </html>
+     

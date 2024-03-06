@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Software Management System</title>
+</head>
+<body>
+    <link rel="stylesheet" href="client.css">
+
+    <header>
+        <h1>Software Management System</h1>
+    </header>
+
+    <div class="container">
+        <div class="dropdown">
+            <div class="circle" id="userInitial">P</div>
+            <div class="dropdown-content">
+                <a href="editaccount.html">Edit Account</a>
+                <a href="deleteaccountclient.html">Delete Account</a>
+            </div>
+        </div>
+
+        <div class="squares-container">
+            <a href="clientPage.html" class="square">
+                <div class="title">Associate license/Serial number</div>
+                <div class="description">Associate license/Serial number with an account with required information</div>
+            </a>
+
+            <a href="listSerial.html" class="square">
+                <div class="title">List my serial numbers</div>
+                <div class="description">Lists all my serial numbers</div>
+            </a>
+
+            <a href="newLicenses.html" class="square">
+                <div class="title">Acquire new licenses</div>
+                
+                <div class="description">Get new licenses of your choice</div>
+            </a>
+
+            <a href="renewLicenses.html" class="square">
+                <div class="title">Manage subscriptions</div>
+                <div class="description">Renew or stop renewing licenses 
+                </div>
+            </a>
+
+           
+        </div>
+    </div>
+    <script>
+    document.addEventListener('DOMContentLoaded', function () {
+        // Retrieve user initial from localStorage
+        const userInitial = localStorage.getItem('userInitial') || 'P';
+
+        // Set the user's initial in the bubble
+        document.getElementById('userInitial').textContent = userInitial;
+    });
+</script>
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Generate Serial Number</title>
+    <link rel="stylesheet" type="text/css" href="generateSer.css" > <!-- Link to your CSS file -->
+</head>
+
+<body>
+    <header>
+        <h1>Software Management System</h1>
+    </header>
+
+    <main class="container">
+        <a href="provider.html" class="back-button">Back</a>
+        <button class="generate-button" onclick="generateSerialNumber()">Generate New Serial Number</button>
+        <p id="serial-output">Serial Number: </p>
+    </main>
+
+    <script>
+        function generateSerialNumber() {
+            const serialNumber = 543678964; // Generate or retrieve serial number
+            document.getElementById('serial-output').innerText = 'Serial Number: ' + serialNumber;
+        }
+    </script>
+</body>
+</html>

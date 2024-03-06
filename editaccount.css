@@ -1,0 +1,68 @@
+header {
+    background-color: #000000;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 0;
+    height:60px;
+}
+
+h1 {
+    margin: 0;
+}
+
+
+
+body {
+    
+   
+    background-image: url('ng.png');
+    font-family: Arial, sans-serif;
+}
+
+
+
+form {
+    text-align: center;
+    margin-right: 0;
+}
+
+label {
+    display: block;
+    margin: 10px 0;
+}
+
+input {
+    width: 300px;
+    padding: 5px;
+}
+
+button {
+    margin-top: 10px;
+    padding: 10px 20px;
+    border: none;
+    background-color: black;
+    color: #fff;
+    cursor: pointer;
+    
+}
+
+button:hover {
+    background-color:grey;
+}
+.title{
+    margin-right: 0;
+}
+.back-button {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #333;
+    color: white;
+    cursor: pointer;
+    text-decoration: none;
+    margin-top: 90px;
+}

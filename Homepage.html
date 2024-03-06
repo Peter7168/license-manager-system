@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Software Management System</title>
+    <link rel="stylesheet" href="styles2.css">
+</head>
+<body>
+    <div class="header">
+        <h1>Welcome to the Software Management System</h1>
+        <p>Please select your role</p>
+    </div>
+    <div class="container">        
+        <a href="signin.html" class="half client">
+            <h1>Client</h1>
+        </a>
+        <a href="signinprovider.html" class="half provider">
+            <h1>Provider</h1>
+        </a>
+    </div>
+    <script>    //this script to allow us to press the button anywhere within the container not just in middle of link
+        document.addEventListener("DOMContentLoaded", function() {
+            const halfDivs = document.querySelectorAll('.half');
+            halfDivs.forEach(div => {
+                div.addEventListener('click', function() {
+                    const link = this.querySelector('a');
+                    if (link) {
+                        link.click();
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

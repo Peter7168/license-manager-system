@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acquire Licenses</title>
+    <header>
+        <h1>Software Management System</h1>
+    </header>
+
+
+    <style>
+          h1 {
+            text-align: center;
+            color: #ffffff;
+        }
+
+        header {
+            background-color: #000;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            margin-bottom: 20px;
+            height:60px;
+        }
+       
+
+
+        #licenseForm {
+            max-width: 400px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .alert {
+            padding: 15px;
+            background-color: #ffffff;
+            color: #0e0e0e;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #535353;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 16px;
+            box-sizing: border-box;
+            border: 1px solid #535353;
+            border-radius: 4px;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('ng.png');
+        }
+
+        input[type="button"] {
+            background-color: rgba(52, 152, 219, 0.8);
+            color: #ffffff;
+            cursor: pointer;
+        }
+        .back-button {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #333;
+    color: white;
+    cursor: pointer;
+    text-decoration: none;
+    margin-top: 150px;
+}
+    </style>
+</head>
+<body>
+    <h1>Acquire Licenses</h1>
+    <div id="licenseForm">
+        <label for="licenseCount">Number of Licenses:</label>
+        <input type="number" id="licenseCount" min="1" required><br>
+
+        <label for="softwareName">Software Name:</label>
+        <input type="text" id="softwareName" required><br>
+
+        <input type="button" value="Acquire Licenses" onclick="acquireLicenses()">
+    </div>
+    <a href="client.html" class="back-button">Back</a>
+    <script>
+        function acquireLicenses() {
+            var licenseCount = document.getElementById('licenseCount').value;
+            var softwareName = document.getElementById('softwareName').value;
+        
+            // Generate random serial numbers with expiration dates for the acquired licenses
+            var newSerialNumbers = [];
+            for (var i = 0; i < licenseCount; i++) {
+                var randomSerialNumber = generateRandomSerial();
+                newSerialNumbers.push({ serialNumber: randomSerialNumber.serialNumber, softwareName: softwareName, expiryDate: randomSerialNumber.expiryDate });
+            }
+        
+            // Retrieve existing serial numbers from local storage
+            var existingSerialNumbers = JSON.parse(localStorage.getItem('serialNumbers')) || [];
+        
+            // Add the newly acquired serial numbers to the existing ones
+            existingSerialNumbers = existingSerialNumbers.concat(newSerialNumbers);
+        
+            // Update local storage with the combined serial numbers
+            localStorage.setItem('serialNumbers', JSON.stringify(existingSerialNumbers));
+        
+            // Display success message
+            console.log(licenseCount + " licenses acquired for " + softwareName);
+            var alertDiv = document.createElement('div');
+            alertDiv.className = 'alert';
+            alertDiv.textContent = licenseCount + " licenses acquired for " + softwareName + "!\n(information will be sent to your email.)";
+            document.body.appendChild(alertDiv);
+        }
+        
+        function generateRandomSerial() {
+            // Generate a random serial number
+            var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+            var randomSerialNumber = '';
+            for (var i = 0; i < 6; i++) {
+                var randomIndex = Math.floor(Math.random() * characters.length);
+                randomSerialNumber += characters.charAt(randomIndex);
+            }
+        
+            // Generate a random expiration date between 1 and 2 years from 20th January 2024
+            var startDate = new Date('2024-01-20');
+            var randomDays = Math.floor(Math.random() * 365) + 1; // Random days between 1 and 365
+            var expirationDate = new Date(startDate);
+            expirationDate.setDate(startDate.getDate() + randomDays + 365); // Add random days + 1 year
+        
+            return { serialNumber: randomSerialNumber, expiryDate: expirationDate.toDateString() };
+        }
+        </script>
+        
+        
+</body>
+</html>
